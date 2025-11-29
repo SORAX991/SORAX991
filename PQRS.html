@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PQRS - Ala Dorada</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <img src="https://i.postimg.cc/BvFy9zZ1/Imagen_de_Whats_App_2025_11_27_a_las_14_11_52_0e0e945d.jpg" alt="Ala Dorada" class="logo">
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="politica.html">Política de datos</a>
+      </nav>
+      <a class="btn-whatsapp" href="https://wa.me/573027987575" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="container" style="padding:40px 20px;">
+      <h2 style="text-align:center;">Formulario Oficial de PQRS</h2>
+      <p style="text-align:center; color:#444;">Completa el formulario. Recibirás un número de radicado y confirmación por correo.</p>
+
+      <div class="form-wrapper" style="max-width:820px;margin:20px auto;">
+        <form id="pqrsForm" class="pqrs-form">
+          <label>Nombre completo</label>
+          <input type="text" id="nombre" placeholder="Nombre y apellidos" required>
+        
+<div class="form-group">
+    <label for="tipoDocumento">Tipo de Documento</label>
+    <select id="tipoDocumento" required>
+        <option value="">Seleccione...</option>
+        <option value="CC">Cédula de Ciudadanía</option>
+        <option value="CE">Cédula de Extranjería</option>
+        <option value="TI">Tarjeta de Identidad</option>
+        <option value="PA">Pasaporte</option>
+        <option value="NIT">NIT</option>
+    </select>
+</div>
+
+
+<div class="form-group">
+    <label for="numeroDocumento">Número de Documento</label>
+    <input type="text" id="numeroDocumento" placeholder="Ingresa tu número" required>
+</div>
+
+
+          <label>Correo electrónico</label>
+          <input type="email" id="correo" placeholder="correo@example.com" required>
+
+          <label>Teléfono</label>
+          <input type="text" id="telefono" placeholder="+57 3XX XXX XXXX" required>
+
+          <label>Número de vuelo (opcional)</label>
+          <input type="text" id="vuelo" placeholder="Ej: AD4582">
+
+          <label>Tipo de PQRS</label>
+          <select id="tipo" required>
+            <option value="">Selecciona</option>
+            <option value="Peticion">Petición</option>
+            <option value="Queja">Queja</option>
+            <option value="Reclamo">Reclamo</option>
+            <option value="Sugerencia">Sugerencia</option>
+          </select>
+
+          <label>Asunto</label>
+          <input type="text" id="asunto" placeholder="Breve título" required>
+
+          <label>Descripción</label>
+          <textarea id="descripcion" rows="6" placeholder="Describe tu solicitud con detalle" required></textarea>
+
+          <label style="margin-top:12px;">
+            <div class="politica">
+    <label class="check-container">
+        <input type="checkbox" id="politica">
+        <span class="checkmark"></span>
+        Acepto la Política de Tratamiento de Datos
+    </label>
+</div>
+
+
+          <button type="submit" class="btn-primary">Enviar PQRS</button>
+        </form>
+
+        <div id="mensajeOk" class="mensaje-ok" style="display:none; margin-top:20px;">
+          <h3>Tu PQRS fue enviada</h3>
+          <p>Hemos recibido tu solicitud. En breve recibirás un número de radicado y confirmación en tu correo.</p>
+          <p>Número de radicado: <strong id="radicado"></strong></p>
+          <a href="index.html" class="btn-secondary" style="display:inline-block;margin-top:12px;">Volver al inicio</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2025 Ala Dorada</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
