@@ -7,30 +7,6 @@
   <link rel="stylesheet" href="estilos.css">
 
   <style>
-    .selector-servicio {
-      max-width: 850px;
-      margin: 35px auto;
-      text-align: center;
-    }
-
-    .selector-servicio button {
-      padding: 12px 20px;
-      margin: 10px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      background: var(--gold);
-      color: #fff;
-      font-weight: 700;
-      transition: 0.3s;
-    }
-
-    .selector-servicio button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-    }
-
     .encuesta-box {
       max-width: 850px;
       margin: 40px auto;
@@ -39,7 +15,6 @@
       border-radius: 12px;
       box-shadow: 0 10px 28px rgba(0,0,0,0.10);
       animation: fadeInUp 0.6s ease;
-      display: none;
     }
 
     @keyframes fadeInUp {
@@ -62,6 +37,12 @@
       border-radius: 8px;
       border: 1px solid #d6d6d6;
       font-size: 15px;
+    }
+
+    select:focus, textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 6px 18px rgba(212,175,55,0.10);
+      outline: none;
     }
 
     .btn-enviar {
@@ -91,6 +72,12 @@
       border: 1px solid #bceac7;
       border-radius: 10px;
       text-align: center;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
   </style>
 </head>
@@ -108,106 +95,121 @@
     </div>
   </header>
 
+  <!-- ENCUESTA -->
   <main>
+    <div class="encuesta-box">
+      <h2 style="text-align:center;">Encuesta de Satisfacción – Ala Dorada</h2>
+      <p style="text-align:center;color:#444;">Tu opinión es vital para mejorar nuestros servicios.</p>
 
-    <!-- SELECTOR -->
-    <div class="selector-servicio">
-      <h2>Encuesta de Satisfacción</h2>
-      <p>Seleccione el tipo de servicio que desea evaluar:</p>
+      <form id="encuestaForm">
 
-      <button onclick="mostrar('aereo')">Servicio de Línea Aérea</button>
-      <button onclick="mostrar('paquetes')">Servicio de Mensajería / Paquetería</button>
-    </div>
-
-    <!-- ENCUESTA AÉREA -->
-    <div id="encuestaAereo" class="encuesta-box">
-      <h2 style="text-align:center;">Encuesta – Servicio Aéreo</h2>
-
-      <form id="formAereo">
-
+        <!-- Sección 1 -->
         <h3>1. Experiencia general</h3>
 
-        <label>Su experiencia general</label>
+        <label>¿Cómo calificaría su experiencia general?</label>
         <select required>
-          <option>Excelente</option><option>Buena</option>
-          <option>Regular</option><option>Mala</option>
+          <option value="">Seleccione una opción</option>
+          <option>Excelente</option>
+          <option>Buena</option>
+          <option>Regular</option>
+          <option>Mala</option>
         </select>
 
-        <label>Proceso de compra</label>
+        <label>¿Qué tan satisfecho está con el proceso de compra de su tiquete?</label>
         <select required>
-          <option>Muy satisfecho</option><option>Satisfecho</option>
-          <option>Poco satisfecho</option><option>Nada satisfecho</option>
+          <option value="">Seleccione una opción</option>
+          <option>Muy satisfecho</option>
+          <option>Satisfecho</option>
+          <option>Poco satisfecho</option>
+          <option>Nada satisfecho</option>
         </select>
 
-        <label>Registro de vuelo</label>
+        <label>¿El proceso de registro de vuelo fue sencillo y rápido?</label>
         <select required>
+          <option value="">Seleccione una opción</option>
           <option>Sí, totalmente</option>
           <option>Parcialmente</option>
           <option>No</option>
         </select>
 
+        <!-- Sección 2 -->
         <h3>2. Servicio a bordo</h3>
 
-        <label>Comodidad del asiento</label>
+        <label>Comodidad de los asientos y espacio en cabina</label>
         <select required>
-          <option>Excelente</option><option>Buena</option>
-          <option>Regular</option><option>Mala</option>
+          <option value="">Seleccione una opción</option>
+          <option>Excelente</option>
+          <option>Buena</option>
+          <option>Regular</option>
+          <option>Mala</option>
         </select>
 
         <label>Atención de la tripulación</label>
         <select required>
-          <option>Muy satisfactoria</option><option>Satisfactoria</option>
-          <option>Poco satisfactoria</option><option>Nada satisfactoria</option>
+          <option value="">Seleccione una opción</option>
+          <option>Muy satisfactoria</option>
+          <option>Satisfactoria</option>
+          <option>Poco satisfactoria</option>
+          <option>Nada satisfactoria</option>
         </select>
+
+        <label>Calidad de los alimentos y bebidas</label>
+        <select required>
+          <option value="">Seleccione una opción</option>
+          <option>Excelente</option>
+          <option>Buena</option>
+          <option>Regular</option>
+          <option>Mala</option>
+        </select>
+
+        <!-- Sección 3 -->
+        <h3>3. Puntualidad y confianza</h3>
+
+        <label>¿El vuelo salió y llegó en el horario previsto?</label>
+        <select required>
+          <option value="">Seleccione una opción</option>
+          <option>Sí</option>
+          <option>No</option>
+        </select>
+
+        <label>¿Se sintió seguro durante el viaje?</label>
+        <select required>
+          <option value="">Seleccione una opción</option>
+          <option>Sí, totalmente</option>
+          <option>Parcialmente</option>
+          <option>No</option>
+        </select>
+
+        <!-- Sección 4 -->
+        <h3>4. Recomendación y mejora</h3>
+
+        <label>¿Recomendaría Ala Dorada?</label>
+        <select required>
+          <option value="">Seleccione una opción</option>
+          <option>Definitivamente sí</option>
+          <option>Probablemente sí</option>
+          <option>No estoy seguro</option>
+          <option>No</option>
+        </select>
+
+        <label>¿Qué aspecto deberíamos mejorar?</label>
+        <textarea rows="3" placeholder="Escribe tu respuesta..."></textarea>
+
+        <label>Comentarios adicionales</label>
+        <textarea rows="3" placeholder="Opcional"></textarea>
 
         <button class="btn-enviar">Enviar Encuesta</button>
 
       </form>
 
-      <div id="okAereo" class="mensaje-ok">
-        ¡Gracias por evaluar nuestro servicio aéreo!
+      <div id="mensajeOK" class="mensaje-ok">
+        <h3 style="color:green;">¡Gracias por tu opinión! ✈️</h3>
+        <p>Tu evaluación ha sido registrada con éxito.</p>
       </div>
+
     </div>
-
-    <!-- ENCUESTA PAQUETES -->
-    <div id="encuestaPaquetes" class="encuesta-box">
-      <h2 style="text-align:center;">Encuesta – Servicio de Mensajería</h2>
-
-      <form id="formPaquetes">
-
-        <h3>1. Entrega y tiempos</h3>
-
-        <label>Tiempo de entrega</label>
-        <select required>
-          <option>Excelente</option><option>Bueno</option>
-          <option>Regular</option><option>Malo</option>
-        </select>
-
-        <label>Estado del paquete al recibirlo</label>
-        <select required>
-          <option>Perfecto</option><option>Bueno</option>
-          <option>Regular</option><option>Dañado</option>
-        </select>
-
-        <h3>2. Confianza y seguridad</h3>
-
-        <label>¿Se sintió seguro usando nuestro servicio?</label>
-        <select required>
-          <option>Sí</option><option>Parcialmente</option><option>No</option>
-        </select>
-
-        <button class="btn-enviar">Enviar Encuesta</button>
-
-      </form>
-
-      <div id="okPaquetes" class="mensaje-ok">
-        ¡Gracias por evaluar nuestro servicio de mensajería!
-      </div>
-    </div>
-
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>© 2025 Ala Dorada</div>
@@ -215,28 +217,12 @@
   </footer>
 
   <script>
-    function mostrar(tipo){
-      document.getElementById("encuestaAereo").style.display = "none";
-      document.getElementById("encuestaPaquetes").style.display = "none";
-
-      if(tipo === "aereo"){
-        document.getElementById("encuestaAereo").style.display = "block";
-      } else {
-        document.getElementById("encuestaPaquetes").style.display = "block";
-      }
-    }
-
-    document.getElementById("formAereo").onsubmit = function(e){
+    document.getElementById("encuestaForm").onsubmit = function(e){
       e.preventDefault();
-      document.getElementById("okAereo").style.display = "block";
-    };
-
-    document.getElementById("formPaquetes").onsubmit = function(e){
-      e.preventDefault();
-      document.getElementById("okPaquetes").style.display = "block";
+      document.getElementById("mensajeOK").style.display = "block";
+      console.log("Encuesta enviada correctamente.");
     };
   </script>
 
 </body>
 </html>
-
