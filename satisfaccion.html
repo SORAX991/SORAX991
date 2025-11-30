@@ -7,23 +7,48 @@
   <link rel="stylesheet" href="estilos.css">
 
   <style>
+    .selector-servicio {
+      max-width: 850px;
+      margin: 35px auto;
+      text-align: center;
+    }
+
+    .selector-servicio button {
+      padding: 12px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      background: var(--gold);
+      color: #fff;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .selector-servicio button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+
     .encuesta-box {
-      max-width: 900px;
+      max-width: 850px;
       margin: 40px auto;
       background: #fff;
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 10px 28px rgba(0,0,0,0.10);
-      animation: fadeInUp .6s ease;
+      animation: fadeInUp 0.6s ease;
+      display: none;
     }
 
     @keyframes fadeInUp {
-      from { opacity:0; transform:translateY(25px); }
-      to { opacity:1; transform:translateY(0); }
+      from {opacity: 0; transform: translateY(25px);}
+      to {opacity: 1; transform: translateY(0);}
     }
 
     h3 {
-      margin-top: 25px;
+      margin-top: 25px; 
       color: var(--dark);
       font-size: 20px;
       border-left: 4px solid var(--gold);
@@ -37,12 +62,6 @@
       border-radius: 8px;
       border: 1px solid #d6d6d6;
       font-size: 15px;
-    }
-
-    select:focus, textarea:focus {
-      border-color: var(--gold);
-      box-shadow: 0 6px 18px rgba(212,175,55,0.10);
-      outline: none;
     }
 
     .btn-enviar {
@@ -76,7 +95,6 @@
   </style>
 </head>
 
-
 <body>
 
   <!-- HEADER -->
@@ -91,43 +109,37 @@
   </header>
 
   <main>
-    <div class="encuesta-box fade-in">
 
-      <h2 style="text-align:center;">Encuesta de Satisfacción</h2>
-      <p style="text-align:center;color:#444;">Seleccione el servicio que desea evaluar.</p>
+    <!-- SELECTOR -->
+    <div class="selector-servicio">
+      <h2>Encuesta de Satisfacción</h2>
+      <p>Seleccione el tipo de servicio que desea evaluar:</p>
 
-      <!-- SELECTOR PRINCIPAL -->
-      <label><strong>Servicio a evaluar:</strong></label>
-      <select id="selectorServicio" required>
-        <option value="">Selecciona una opción...</option>
-        <option value="aerolinea">✈️ Servicio de Aerolínea (Viajeros)</option>
-        <option value="paqueteria">📦 Servicio de Mensajería / Paquetería</option>
-      </select>
+      <button onclick="mostrar('aereo')">Servicio de Línea Aérea</button>
+      <button onclick="mostrar('paquetes')">Servicio de Mensajería / Paquetería</button>
+    </div>
 
-      <br><br>
+    <!-- ENCUESTA AÉREA -->
+    <div id="encuestaAereo" class="encuesta-box">
+      <h2 style="text-align:center;">Encuesta – Servicio Aéreo</h2>
 
-      <!-- ENCUESTA: AEROLÍNEA -->
-      <form id="formAereo" style="display:none;">
+      <form id="formAereo">
 
         <h3>1. Experiencia general</h3>
 
-        <label>¿Cómo califica la experiencia general?</label>
+        <label>Su experiencia general</label>
         <select required>
-          <option>Excelente</option>
-          <option>Buena</option>
-          <option>Regular</option>
-          <option>Mala</option>
+          <option>Excelente</option><option>Buena</option>
+          <option>Regular</option><option>Mala</option>
         </select>
 
-        <label>Proceso de compra del tiquete</label>
+        <label>Proceso de compra</label>
         <select required>
-          <option>Muy satisfecho</option>
-          <option>Satisfecho</option>
-          <option>Poco satisfecho</option>
-          <option>Nada satisfecho</option>
+          <option>Muy satisfecho</option><option>Satisfecho</option>
+          <option>Poco satisfecho</option><option>Nada satisfecho</option>
         </select>
 
-        <label>¿El proceso de registro de vuelo fue sencillo?</label>
+        <label>Registro de vuelo</label>
         <select required>
           <option>Sí, totalmente</option>
           <option>Parcialmente</option>
@@ -136,123 +148,63 @@
 
         <h3>2. Servicio a bordo</h3>
 
-        <label>Comodidad de asientos</label>
+        <label>Comodidad del asiento</label>
         <select required>
-          <option>Excelente</option>
-          <option>Buena</option>
-          <option>Regular</option>
-          <option>Mala</option>
+          <option>Excelente</option><option>Buena</option>
+          <option>Regular</option><option>Mala</option>
         </select>
 
         <label>Atención de la tripulación</label>
         <select required>
-          <option>Muy satisfactoria</option>
-          <option>Satisfactoria</option>
-          <option>Poco satisfactoria</option>
-          <option>Nada satisfactoria</option>
+          <option>Muy satisfactoria</option><option>Satisfactoria</option>
+          <option>Poco satisfactoria</option><option>Nada satisfactoria</option>
         </select>
-
-        <label>Calidad de alimentos y bebidas</label>
-        <select required>
-          <option>Excelente</option>
-          <option>Buena</option>
-          <option>Regular</option>
-          <option>Mala</option>
-        </select>
-
-        <h3>3. Puntualidad y confianza</h3>
-
-        <label>¿El vuelo fue puntual?</label>
-        <select required>
-          <option>Sí</option>
-          <option>No</option>
-        </select>
-
-        <label>¿Se sintió seguro durante el viaje?</label>
-        <select required>
-          <option>Sí, totalmente</option>
-          <option>Parcialmente</option>
-          <option>No</option>
-        </select>
-
-        <h3>4. Comentarios</h3>
-
-        <label>¿Qué debemos mejorar?</label>
-        <textarea rows="3"></textarea>
-
-        <label>Comentarios adicionales</label>
-        <textarea rows="3"></textarea>
 
         <button class="btn-enviar">Enviar Encuesta</button>
 
       </form>
 
-      <!-- ENCUESTA: MENSAJERÍA / PAQUETERÍA -->
-      <form id="formPaquetes" style="display:none;">
+      <div id="okAereo" class="mensaje-ok">
+        ¡Gracias por evaluar nuestro servicio aéreo!
+      </div>
+    </div>
 
-        <h3>1. Servicio de envío</h3>
+    <!-- ENCUESTA PAQUETES -->
+    <div id="encuestaPaquetes" class="encuesta-box">
+      <h2 style="text-align:center;">Encuesta – Servicio de Mensajería</h2>
+
+      <form id="formPaquetes">
+
+        <h3>1. Entrega y tiempos</h3>
 
         <label>Tiempo de entrega</label>
         <select required>
-          <option>Muy rápido</option>
-          <option>Rápido</option>
-          <option>Aceptable</option>
-          <option>Lento</option>
+          <option>Excelente</option><option>Bueno</option>
+          <option>Regular</option><option>Malo</option>
         </select>
 
         <label>Estado del paquete al recibirlo</label>
         <select required>
-          <option>Excelente</option>
-          <option>Bueno</option>
-          <option>Regular</option>
-          <option>Malo</option>
+          <option>Perfecto</option><option>Bueno</option>
+          <option>Regular</option><option>Dañado</option>
         </select>
 
-        <label>Seguridad del envío</label>
+        <h3>2. Confianza y seguridad</h3>
+
+        <label>¿Se sintió seguro usando nuestro servicio?</label>
         <select required>
-          <option>Muy segura</option>
-          <option>Segura</option>
-          <option>Poco segura</option>
-          <option>Nada segura</option>
+          <option>Sí</option><option>Parcialmente</option><option>No</option>
         </select>
-
-        <h3>2. Atención y soporte</h3>
-
-        <label>Atención del personal de mensajería</label>
-        <select required>
-          <option>Muy satisfactoria</option>
-          <option>Satisfactoria</option>
-          <option>Poco satisfactoria</option>
-          <option>Nada satisfactoria</option>
-        </select>
-
-        <label>Claridad en información de seguimiento</label>
-        <select required>
-          <option>Muy clara</option>
-          <option>Clara</option>
-          <option>Poco clara</option>
-          <option>Confusa</option>
-        </select>
-
-        <h3>3. Comentarios</h3>
-
-        <label>¿Qué debemos mejorar?</label>
-        <textarea rows="3"></textarea>
-
-        <label>Comentarios adicionales</label>
-        <textarea rows="3"></textarea>
 
         <button class="btn-enviar">Enviar Encuesta</button>
 
       </form>
 
-      <!-- MENSAJE OK -->
-      <div id="msgOK" class="mensaje-ok">
-        <h3 style="color:green;">¡Gracias por tu opinión!</h3>
-        <p>Tu evaluación ha sido registrada exitosamente.</p>
+      <div id="okPaquetes" class="mensaje-ok">
+        ¡Gracias por evaluar nuestro servicio de mensajería!
       </div>
-
     </div>
+
   </main>
 
   <!-- FOOTER -->
@@ -262,27 +214,29 @@
     </div>
   </footer>
 
-<script>
-  const selector = document.getElementById("selectorServicio");
-  const formAereo = document.getElementById("formAereo");
-  const formPaquetes = document.getElementById("formPaquetes");
-  const msgOK = document.getElementById("msgOK");
+  <script>
+    function mostrar(tipo){
+      document.getElementById("encuestaAereo").style.display = "none";
+      document.getElementById("encuestaPaquetes").style.display = "none";
 
-  selector.onchange = () => {
-    msgOK.style.display = "none";
-    formAereo.style.display = "none";
-    formPaquetes.style.display = "none";
+      if(tipo === "aereo"){
+        document.getElementById("encuestaAereo").style.display = "block";
+      } else {
+        document.getElementById("encuestaPaquetes").style.display = "block";
+      }
+    }
 
-    if (selector.value === "aerolinea") formAereo.style.display = "block";
-    if (selector.value === "paqueteria") formPaquetes.style.display = "block";
-  };
+    document.getElementById("formAereo").onsubmit = function(e){
+      e.preventDefault();
+      document.getElementById("okAereo").style.display = "block";
+    };
 
-  // Confirmación
-  formAereo.onsubmit = formPaquetes.onsubmit = function(e){
-    e.preventDefault();
-    msgOK.style.display = "block";
-  };
-</script>
+    document.getElementById("formPaquetes").onsubmit = function(e){
+      e.preventDefault();
+      document.getElementById("okPaquetes").style.display = "block";
+    };
+  </script>
 
 </body>
 </html>
+
