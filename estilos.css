@@ -595,3 +595,42 @@ body{
     grid-template-columns: 1fr;
   }
 }
+ /* Imagenes */
+.img-1 {
+  background-image: url("https://www.lavanguardia.com/files/og_thumbnail/uploads/2019/09/23/5fa53ab6524ab.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.img-2 {
+  background-image: url("https://www.lavanguardia.com/files/og_thumbnail/uploads/2018/03/22/5fa43c1282d78.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.img-3 {
+  background-image: url("https://i-torrestrella.com/wp-content/uploads/aeropuerto-tocumen.png");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Colocación */
+.instalaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.insta-img {
+  background: #ddd;
+  border-radius: 10px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 8px black;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
