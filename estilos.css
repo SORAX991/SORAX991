@@ -36,7 +36,11 @@ body{
   padding:12px 20px;
 }
 .logo{height:64px;object-fit:contain}
-.nav{display:flex;align-items:center;gap:14px}
+.nav{
+  display:flex;
+  align-items:center;
+  gap:14px
+}
 .nav a{
   color:var(--dark);
   text-decoration:none;
@@ -45,6 +49,7 @@ body{
   border-radius:6px;
 }
 .nav a:hover{background:rgba(10,26,42,0.04)}
+
 .btn-whatsapp{
   background:var(--gold);
   padding:10px 14px;
@@ -77,6 +82,7 @@ body{
 }
 .hero-inner h1{font-size:32px;margin:0 0 10px}
 .hero-inner p{margin:0 0 18px;color:rgba(255,255,255,0.9)}
+
 .btn-primary{
   display:inline-block;
   background:var(--gold);
@@ -98,26 +104,29 @@ body{
 
 /* Secciones */
 .quienes{padding:40px 20px}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
-.quienes-img img{width:100%;border-radius:8px;object-fit:cover}
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  align-items:center;
+}
+.quienes-img img{
+  width:100%;
+  border-radius:8px;
+  object-fit:cover;
+}
+
 .servicios{padding:30px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
 .card{
   background:#fff;
   padding:20px;
   border-radius:10px;
   box-shadow:0 6px 20px rgba(0,0,0,0.06);
-}
-
-/* Contacto */
-.contacto .mapa{
-  height:200px;
-  background:#eaeaea;
-  border-radius:8px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--muted);
 }
 
 /* Footer */
@@ -126,12 +135,28 @@ body{
   color:#fff;
   padding:18px 0;
 }
-.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.footer-inner a{color:rgba(255,255,255,0.85);text-decoration:none}
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.footer-inner a{
+  color:rgba(255,255,255,0.85);
+  text-decoration:none;
+}
 
-/* PQRS form */
-.pqrs-form label{display:block;margin-top:12px;font-weight:700;color:var(--dark)}
-.pqrs-form input,.pqrs-form select,.pqrs-form textarea{
+/* PQRS */
+.pqrs-form label{
+  display:block;
+  margin-top:12px;
+  font-weight:700;
+  color:var(--dark)
+}
+.pqrs-form input,
+.pqrs-form select,
+.pqrs-form textarea{
   width:100%;
   padding:10px;
   margin-top:6px;
@@ -139,14 +164,14 @@ body{
   border:1px solid #d6d6d6;
   font-size:15px;
 }
-.pqrs-form input:focus,.pqrs-form textarea:focus,.pqrs-form select:focus{
+.pqrs-form input:focus,
+.pqrs-form textarea:focus,
+.pqrs-form select:focus{
   outline:none;
   border-color:var(--gold);
   box-shadow:0 6px 18px rgba(212,175,55,0.08);
 }
-.pqrs-form .btn-primary{width:100%;margin-top:18px;display:block}
 
-/* Mensaje de éxito */
 .mensaje-ok{
   background:#e9f6ef;
   border:1px solid #b7e6c8;
@@ -154,516 +179,86 @@ body{
   border-radius:10px;
   text-align:center;
 }
-.mensaje-ok h3{color:green;margin-top:0}
-
-/* Misc */
-.planes-list{list-style:disc;margin-left:20px}
-@media (max-width:900px){
-  .grid-2{grid-template-columns:1fr}
-  .grid-3{grid-template-columns:1fr}
-  .header-inner{flex-direction:column;gap:12px;align-items:stretch}
-  .hero{height:320px}
-  .hero-inner{margin-left:18px;padding:18px}
-  .logo{height:56px}
+.mensaje-ok h3{
+  color:green;
+  margin-top:0;
 }
 
-.politica {
-    margin-top: 15px;
-    display: flex;
-    align-items: center;
+/* Planes */
+.plan{
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+  transition:.25s ease;
+}
+.plan:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.12);
+}
+.plan ul{margin-left:16px}
+
+/* Instalaciones */
+.instalaciones-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+  align-items:stretch;
+}
+.insta-img{
+  background-size:cover;
+  background-position:center;
+  width:100%;
+  height:230px;
+  border-radius:10px;
+  animation:fadeInUp 1s ease forwards;
+  opacity:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:bold;
+  text-shadow:0 0 8px black;
+}
+.instalaciones-box{
+  background:#fff;
+  border-radius:10px;
+  padding:25px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+  line-height:1.6;
+  animation:fadeInUp 1s ease forwards;
+  opacity:0;
 }
 
-.check-container {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    cursor: pointer;
-    user-select: none;
-    gap: 8px;
+/* Imagenes */
+.img-1{
+  background-image:url("https://www.lavanguardia.com/files/og_thumbnail/uploads/2019/09/23/5fa53ab6524ab.jpeg");
 }
-
-/* Ocultar checkbox original */
-.check-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
+.img-2{
+  background-image:url("https://www.lavanguardia.com/files/og_thumbnail/uploads/2018/03/22/5fa43c1282d78.jpeg");
 }
-
-/* Crear checkmark personalizado */
-.checkmark {
-    width: 18px;
-    height: 18px;
-    border: 2px solid #0077ff;
-    border-radius: 4px;
-    display: inline-block;
-    position: relative;
-}
-
-/* Cuando esté marcado */
-.check-container input:checked + .checkmark {
-    background-color: #0077ff;
-    border-color: #005fcc;
-}
-
-.check-container input:checked + .checkmark::after {
-    content: "";
-    position: absolute;
-    left: 5px;
-    top: 1px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-.form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #000000;
-}
-
-.form-group select,
-.form-group input {
-    padding: 10px;
-    border: 1px solid #ccd1d9;
-    border-radius: 6px;
-    font-size: 15px;
-    outline: none;
-    transition: 0.2s;
-}
-
-.form-group select:focus,
-.form-group input:focus {
-    border-color: #000000;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animación escalada al pasar el mouse */
-.servicio {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.servicio:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-}
-
-/* Estilos Planes de Fidelización */
-.plan ul {
-  margin-left: 18px;
-  margin-top: 8px;
-}
-
-.plan ul li {
-  margin-bottom: 6px;
-}
-
-.plan .descripcion {
-  margin-top: 10px;
-  color: #444;
-  font-size: 14.5px;
-}
-
-/* Animaciones - mismo estilo que servicios */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.plan {
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.plan:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-}
-
-/* --- Animación de entrada más suave y profesional --- */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px) scale(0.95);
-  animation: fadeBounce 0.9s ease-out forwards;
-}
-
-@keyframes fadeBounce {
-  0% {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(-4px) scale(1);
-  }
-  100% {
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* --- Tarjetas de Planes con animación elegante --- */
-.plan {
-  position: relative;
-  overflow: hidden;
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-/* hover flotante */
-.plan:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.15);
-}
-
-/* borde brillante dorado animado */
-.plan::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  pointer-events: none;
-  transition: .4s ease;
-}
-
-/* glow en hover */
-.plan:hover::after {
-  border-color: #d4af37;
-  box-shadow: 0 0 12px rgba(212,175,55,0.6);
-}
-
-/* Animación suave en cada lista */
-.plan ul li {
-  opacity: 0;
-  animation: fadeList .5s ease forwards;
-  animation-delay: .4s;
-}
-
-@keyframes fadeList {
-  from { opacity: 0; transform: translateX(-10px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-/* --- Animación de entrada --- */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeBounce 0.9s ease-out forwards;
-}
-
-@keyframes fadeBounce {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Hover elegante */
-.plan {
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.plan:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.15);
-}
-/* Animación de entrada */
-.fade-in {
-  opacity: 0;
-  transform: translateY(25px);
-  animation: aparecer 0.8s ease-out forwards;
-}
-
-@keyframes aparecer {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animación en botones */
-.boton-animado {
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.boton-animado:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-/* GRID DE OPCIONES */
-.opciones-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-  justify-content: center;
-}
-
-@media (max-width: 800px) {
-  .opciones-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* TARJETAS DE OPCIONES */
-.opcion-card {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  text-align: center;
-  border-top: 4px solid #d4af37;
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-/* Efecto hover */
-.opcion-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 35px rgba(0,0,0,0.15);
-}
-
-/* Texto dentro */
-.opcion-card h3 {
-  margin-top: 0;
-  color: #0a1a2a;
-}
-
-.opcion-card p {
-  color: #555;
-  margin-bottom: 18px;
-  font-size: 15px;
-}
-
-/* BOTONES ANIMADOS */
-.boton-animado {
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.boton-animado:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-}
-
-/* ANIMACIÓN DE ENTRADA */
-.fade-in {
-  opacity: 0;
-  transform: translateY(25px);
-  animation: aparecer 0.8s ease-out forwards;
-}
-
-@keyframes aparecer {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
- 
-/* CAJAS DE PLANES */
-.plan-box {
-  position: relative;
-  padding-top: 55px;
-  border-top: 4px solid #d4af37;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-/* ICONOS PREMIUM */
-.plan-icon {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #d4af37;
-  color: #fff;
-  padding: 12px;
-  font-size: 26px;
-  border-radius: 50%;
-  box-shadow: 0 8px 20px rgba(212,175,55,0.35);
-  animation: pop 0.8s ease forwards;
-}
-
-@keyframes pop {
-  0%   { transform: translateX(-50%) scale(0); opacity: 0; }
-  70%  { transform: translateX(-50%) scale(1.15); opacity: 1; }
-  100% { transform: translateX(-50%) scale(1); }
-}
-
-/* ANIMACIÓN DE ENTRADA */
-.fade-in {
-  opacity: 0;
-  transform: translateY(25px);
-  animation: aparecer 0.8s ease-out forwards;
-}
-
-@keyframes aparecer {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* HOVER PROFESIONAL */
-.plan-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 18px 35px rgba(0,0,0,0.15);
-}
-
-.instalaciones-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  align-items: stretch;
-}
-
-.insta-img {
-  background: #e6e6e6;
-  border-radius: 10px;
-  height: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  color: #666;
-  font-size: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  animation: fadeInUp 1s ease forwards;
-  opacity: 0;
-}
-
-.insta-img span {
-  opacity: 0.7;
-}
-
-/* Caja de texto */
-.instalaciones-box {
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 25px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  line-height: 1.6;
-  font-size: 16px;
-  color: #0a1a2a;
-  animation: fadeInUp 1s ease forwards;
-  opacity: 0;
+.img-3{
+  background-image:url("https://i-torrestrella.com/wp-content/uploads/aeropuerto-tocumen.png");
 }
 
 /* Animación */
-@keyframes fadeInUp {
-  0% {
-    transform: translateY(25px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0px);
-    opacity: 1;
+.fade-in{
+  opacity:0;
+  transform:translateY(25px);
+  animation:fadeInUp .8s ease-out forwards;
+}
+@keyframes fadeInUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
   }
 }
 
 /* Responsive */
-@media (max-width: 900px) {
-  .instalaciones-grid {
-    grid-template-columns: 1fr;
-  }
-}
- /* Imagenes */
-.img-1 {
-  background-image: url("https://www.lavanguardia.com/files/og_thumbnail/uploads/2019/09/23/5fa53ab6524ab.jpeg");
-  background-size: cover;
-  background-position: center;
-}
-
-.img-2 {
-  background-image: url("https://www.lavanguardia.com/files/og_thumbnail/uploads/2018/03/22/5fa43c1282d78.jpeg");
-  background-size: cover;
-  background-position: center;
-}
-
-.img-3 {
-  background-image: url("https://i-torrestrella.com/wp-content/uploads/aeropuerto-tocumen.png");
-  background-size: cover;
-  background-position: center;
-}
-
-/* Colocación */
-.instalaciones-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.insta-img {
-  background: #ddd;
-  border-radius: 10px;
-  height: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: bold;
-  text-shadow: 0 0 8px black;
-  animation: fadeInUp 1s ease forwards;
-  opacity: 0;
-}
-
-.instalaciones-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.insta-img {
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 230px;
-  border-radius: 10px;
-  animation: fadeInUp 1s ease forwards;
-  opacity: 0;
-}
-
-.img-1 {
-  background-image: url("https://www.lavanguardia.com/files/og_thumbnail/uploads/2019/09/23/5fa53ab6524ab.jpeg");
-}
-
-.img-2 {
-  background-image: url("https://www.lavanguardia.com/files/og_thumbnail/uploads/2018/03/22/5fa43c1282d78.jpeg");
-}
-
-.img-3 {
-  background-image: url("https://i-torrestrella.com/wp-content/uploads/aeropuerto-tocumen.png");
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+@media(max-width:900px){
+  .grid-2{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr}
+  .instalaciones-grid{grid-template-columns:1fr}
+  .hero{height:320px}
+  .logo{height:56px}
 }
