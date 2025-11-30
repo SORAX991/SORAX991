@@ -537,3 +537,61 @@ body{
   transform: translateY(-10px);
   box-shadow: 0 18px 35px rgba(0,0,0,0.15);
 }
+
+.instalaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.insta-img {
+  background: #e6e6e6;
+  border-radius: 10px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #666;
+  font-size: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+.insta-img span {
+  opacity: 0.7;
+}
+
+/* Caja de texto */
+.instalaciones-box {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  line-height: 1.6;
+  font-size: 16px;
+  color: #0a1a2a;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+/* Animación */
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .instalaciones-grid {
+    grid-template-columns: 1fr;
+  }
+}
