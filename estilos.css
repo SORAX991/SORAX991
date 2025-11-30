@@ -334,4 +334,14 @@ body{
   }
 }
 
+/* Arreglo del botón que mostraba la línea azul al lado */
+.opcion-card a,
+.btn-secondary,
+.boton-animado {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+
 
