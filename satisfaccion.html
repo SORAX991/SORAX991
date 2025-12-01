@@ -7,59 +7,78 @@
   <link rel="stylesheet" href="estilos.css">
 
   <style>
+    /* Caja principal */
     .encuesta-box {
-      max-width: 750px;
+      max-width: 780px;
       margin: 30px auto;
-      background: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
-      animation: fadeIn .8s ease;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.10);
+      animation: fadeIn 0.9s ease;
     }
 
     .encuesta-box h2 {
       text-align: center;
       margin-bottom: 20px;
+      color: #0a1a2a;
+    }
+
+    .encuesta-box h3 {
+      margin-top: 18px;
+      margin-bottom: 12px;
+      color: #d4af37;
     }
 
     label {
-      font-weight: 700;
-      margin-top: 12px;
+      font-weight: 600;
+      margin-top: 15px;
       display: block;
+      color: #0a1a2a;
     }
 
     select, textarea {
       width: 100%;
       padding: 12px;
       margin-top: 6px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+      border: 1px solid #cfcfcf;
+      border-radius: 8px;
+      transition: .2s;
+    }
+
+    select:focus, textarea:focus {
+      border-color: #d4af37;
+      box-shadow: 0 0 8px rgba(212,175,55,0.30);
     }
 
     button {
-      margin-top: 20px;
+      margin-top: 25px;
       width: 100%;
-      padding: 14px;
+      padding: 15px;
       background: #d4af37;
       border: none;
       color: #fff;
-      font-size: 17px;
+      font-size: 18px;
       font-weight: bold;
       border-radius: 8px;
       cursor: pointer;
+      transition: .3s;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
     }
 
     button:hover {
       background: #b8952f;
+      transform: scale(1.02);
     }
 
     .hidden {
       display: none;
     }
 
+    /* Animación */
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
   </style>
 
@@ -89,11 +108,11 @@
     </select>
 
     <!-- FORMULARIO DE VUELO -->
-    <div id="formVuelo" class="hidden fade-in">
-      <h3 style="margin-top:25px;">Evaluación del Servicio de Vuelo</h3>
+    <div id="formVuelo" class="hidden">
+      <h3>Evaluación del Servicio de Vuelo</h3>
 
       <label>¿Cómo calificarías tu experiencia general?</label>
-      <select>
+      <select class="req-vuelo">
         <option value="">Escoge una opción…</option>
         <option>Excelente</option>
         <option>Buena</option>
@@ -102,7 +121,7 @@
       </select>
 
       <label>¿Qué tan satisfecho estás con la comodidad del avión?</label>
-      <select>
+      <select class="req-vuelo">
         <option value="">Escoge una opción…</option>
         <option>Muy satisfecho</option>
         <option>Satisfecho</option>
@@ -111,7 +130,7 @@
       </select>
 
       <label>¿La atención de la tripulación fue adecuada?</label>
-      <select>
+      <select class="req-vuelo">
         <option value="">Escoge una opción…</option>
         <option>Excelente</option>
         <option>Buena</option>
@@ -120,17 +139,17 @@
       </select>
 
       <label>Comentarios adicionales</label>
-      <textarea rows="4" placeholder="Escribe tu opinión…"></textarea>
+      <textarea class="req-vuelo" rows="4" placeholder="Escribe tu opinión…"></textarea>
 
-      <button type="button">Enviar Evaluación de Vuelo</button>
+      <button type="button" id="btnVuelo">Enviar Evaluación de Vuelo</button>
     </div>
 
     <!-- FORMULARIO DE PAQUETERÍA -->
-    <div id="formPaqueteria" class="hidden fade-in">
-      <h3 style="margin-top:25px;">Evaluación del Servicio de Paquetería</h3>
+    <div id="formPaqueteria" class="hidden">
+      <h3>Evaluación del Servicio de Paquetería</h3>
 
       <label>¿Cómo calificarías la rapidez del envío?</label>
-      <select>
+      <select class="req-pack">
         <option value="">Escoge una opción…</option>
         <option>Excelente</option>
         <option>Buena</option>
@@ -139,14 +158,14 @@
       </select>
 
       <label>¿El paquete llegó en buen estado?</label>
-      <select>
+      <select class="req-pack">
         <option value="">Escoge una opción…</option>
         <option>Sí</option>
         <option>No</option>
       </select>
 
       <label>¿Qué tan satisfecho estás con la atención recibida?</label>
-      <select>
+      <select class="req-pack">
         <option value="">Escoge una opción…</option>
         <option>Muy satisfecho</option>
         <option>Satisfecho</option>
@@ -155,9 +174,9 @@
       </select>
 
       <label>Comentarios adicionales</label>
-      <textarea rows="4" placeholder="Escribe tu opinión…"></textarea>
+      <textarea class="req-pack" rows="4" placeholder="Escribe tu opinión…"></textarea>
 
-      <button type="button">Enviar Evaluación de Paquetería</button>
+      <button type="button" id="btnPack">Enviar Evaluación de Paquetería</button>
     </div>
 
   </section>
@@ -174,6 +193,30 @@
 
     if (selector.value === "vuelo") vueloBox.classList.remove("hidden");
     if (selector.value === "paqueteria") packBox.classList.remove("hidden");
+  });
+
+  // VALIDACIÓN VUELO
+  document.getElementById("btnVuelo").addEventListener("click", () => {
+    const campos = document.querySelectorAll(".req-vuelo");
+    for (let c of campos) {
+      if (c.value.trim() === "") {
+        alert("Por favor completa todos los campos antes de enviar la encuesta.");
+        return;
+      }
+    }
+    alert("¡Gracias! Tu evaluación del vuelo ha sido enviada.");
+  });
+
+  // VALIDACIÓN PAQUETERÍA
+  document.getElementById("btnPack").addEventListener("click", () => {
+    const campos = document.querySelectorAll(".req-pack");
+    for (let c of campos) {
+      if (c.value.trim() === "") {
+        alert("Por favor completa todos los campos antes de enviar la encuesta.");
+        return;
+      }
+    }
+    alert("¡Gracias! Tu evaluación de paquetería ha sido enviada.");
   });
 </script>
 
